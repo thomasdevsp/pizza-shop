@@ -7,6 +7,8 @@ import { OrderStatus } from "@/components/order-status"
 import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
+import { OrderDetailsSkeleton } from "./order-details-skeleton"
+
 export interface OrderDetailsProps {
   orderId: string;
   open: boolean
@@ -34,7 +36,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps){
         </DialogDescription>
       </DialogHeader>
 
-      {order && (
+      {order ? (
         <div className="space-y-6">
           <Table>
             <TableBody>
@@ -117,6 +119,8 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps){
             </TableFooter>
           </Table>
         </div>
+      ) : (
+        <OrderDetailsSkeleton />
       )}
     </DialogContent>
 
