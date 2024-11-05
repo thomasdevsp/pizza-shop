@@ -8,7 +8,7 @@ export interface GetOrdersQuery {
 
 }
 
-interface GetOrdersReponse {
+export interface GetOrdersReponse {
   orders: {
     orderId: string;
     createdAt: string ;
